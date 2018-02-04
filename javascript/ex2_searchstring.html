@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ex2_searchstring</title>
+</head>
+<body>
+    <script type="text/javascript">
+        function search(){
+            var textarea = document.getElementById('textarea').value;
+            var radio = document.getElementsByName('check');
+            var ans = "";
+            var search = document.getElementById('input').value;
+	           for (var i=0; i<radio.length; i++){
+	            	if( radio[i].checked== true){
+	            		ans = radio[i].value;
+	            		break;
+	            	}
+	         	}
+	         	var arr = textarea.split(" ");
+	         	var count = 0;
+	         	for (var i=0; i<arr.length; i++){
+	         		if(ans=="0"){
+	         			arr[i]=arr[i].toLowerCase();
+	         			search=search.toLowerCase();
+	         		}
+	            	if( arr[i].search(search) > -1 ){
+	            		count++;
+	            	}
+	         	}
+	         	document.getElementById('output').innerHTML=count;
+        }
+
+    </script>
+    <center>
+        <h1>Ex2 - Search String Non Sensitive Case</h1>
+        <hr>
+        Text Input: 
+        <textarea id="textarea"></textarea>
+        <br><br>
+        Sensitive Case : 
+        <input type="radio" name="check" value="1" checked>Yes
+        <input type="radio" name="check" value="0" >No
+        <br><br>
+        Search : 
+        <input type="text" id="input">
+        <br><br>
+        <button onclick="search()">search</button>
+        <br><br>
+        Result for Search : 
+        <span id="output" ></span>
+    </center>
+</body>
+</html>
