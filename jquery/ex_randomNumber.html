@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Ex-Randdom Number for Answer</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script type="text/javascript">
+
+		$( document ).ready(function() {
+    		//console.log( "ready!" );
+    		$( "#randdom" ).click(function() {
+			  //alert( "Handler for .click() called." );
+			  var max = 999;
+			  var min = 000;
+			  var random1 = Math.floor( Math.random() * (min - max + 1) ) + max;
+			  var random2 = Math.floor( Math.random() * (min - max + 1) ) + max;
+			  $("#num1").html(random1); //systax JQury
+			  $("#num2").html(random2);
+
+			});
+
+			$( "#submit" ).click(function() {
+			  //alert( "Handler for .click() called." );
+			  var result = $("#answer").val();   //val=value ที่เราใส่มา
+			  var ran1 = $("#num1").html();
+			  var ran2 = $("#num2").html();
+			  var number1 = parseInt(ran1);
+			  var number2 = parseInt(ran2);
+			  var number3 = parseInt(result);  //jquery string to number
+			//console.log(number1);
+			//console.log(number2);
+			//console.log(number3);
+			  if (number1 + number2 != number3) {
+			  	//console.log("rr");
+			  	$("#result-color").css("color", "red");
+			  	$("#result-color").html("That's  not correct.");
+
+			  }else{
+			  	//console.log("else");
+			  	$("#result-color").css("color", "green");
+			  	$("#result-color").html("That's correct.");
+			  	
+			  }
+
+
+			});
+		});
+	</script>
+</head>
+	
+
+
+
+<body>
+	<h1 align="center">Ex-Randdom Number for Answer</h1>
+	<hr>
+
+	<div class="col-md-12" align="center">
+		<input type="button" id="randdom" name="randdom" value="Randdom Number">
+		<br><br>
+			<span id="num1"> </span> + 
+			<span id="num2"> </span>
+		 = <input type="text" name="answer" id="answer">
+	</div>
+	<div class="col-md-12" align="center">
+		<br>
+		<input type="button" id="submit" name="submit" value="Send Answer">
+	</div>
+	<div class="col-md-12" align="center">
+		<span id="result-color">Result : </span>
+	</div>
+
+
+</body>
+</html>
